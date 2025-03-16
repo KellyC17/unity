@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2681f20ecb2dc49648b4b382e94a8632, type: 3}
+  m_Name: so_RecipeList
+  m_EditorClassIdentifier: 
+  recipes:
+  - recipeId: 3001
+    recipeName: "\u8292\u679C\u679C\u8089"
+    outputId: 2002
+    outputPrefab: {fileID: 4380067984600844303, guid: 065a8427b6b114676b003f88d41c2591, type: 3}
+    outputAmount: 1
+    inputIngredientIds:
+    - 2001
+    inputIngredientAmounts: 01000000
+    toolId: 1006
+  - recipeId: 3002
+    recipeName: "\u8292\u679C\u679C\u6CE5"
+    outputId: 2002
+    outputPrefab: {fileID: 4380067984600844303, guid: 483f958ed4af34ea292d3459f857dc58, type: 3}
+    outputAmount: 1
+    inputIngredientIds:
+    - 2002
+    inputIngredientAmounts: 01000000
+    toolId: 1002
