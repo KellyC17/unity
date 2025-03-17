@@ -26,9 +26,8 @@ public class Knife : Tool
 
   public override void ApplyToolAction()
   {
-    Collider2D myCollider = GetComponent<BoxCollider2D>();
-    Collider2D[] overlaps = new Collider2D[10]; // Adjust size as needed
-    int count = myCollider.Overlap(new ContactFilter2D(), overlaps);
+    overlaps = new Collider2D[10]; // Adjust size as needed
+    int count = ingredientCollider.Overlap(new ContactFilter2D(), overlaps);
     Debug.Log("Overlapping with " + count + " objects");
 
     for (int i = 0; i < count; i++)

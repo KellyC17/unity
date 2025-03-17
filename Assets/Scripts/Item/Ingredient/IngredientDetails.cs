@@ -7,7 +7,7 @@ public class IngredientDetails : ItemDetails
   public bool canBeChopped;
   public string choppedTransformItemId;
   public GameObject choppedPrefab;
-
+  public GameObject liquidPrefab;
   public bool isSteamable;
   public string steamedTransformItemId;
 

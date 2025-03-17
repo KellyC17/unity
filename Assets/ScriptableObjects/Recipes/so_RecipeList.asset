@@ -31,3 +31,13 @@ MonoBehaviour:
     - 2002
     inputIngredientAmounts: 01000000
     toolId: 1002
+  - recipeId: 3003
+    recipeName: "\u8292\u679C\u5976\u6614"
+    outputId: 2006
+    outputPrefab: {fileID: 4380067984600844303, guid: e7282b349b5b3484baef60beb717fdfc, type: 3}
+    outputAmount: 1
+    inputIngredientIds:
+    - 2002
+    - 2005
+    inputIngredientAmounts: 0100000001000000
+    toolId: 1002

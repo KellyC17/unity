@@ -37,8 +37,6 @@ public class Recipe
     // Determine the multiple
     foreach (KeyValuePair<string, int> ingredient in ingredients)
     {
-      Debug.Log(2);
-
       bool found = false;
       for (int i = 0; i < inputIngredientIds.Length; i++)
       {
@@ -46,8 +44,6 @@ public class Recipe
         {
           if (ingredient.Value % inputIngredientAmounts[i] != 0)
           {
-            Debug.Log(3);
-
             return 0;
           }
           int currentMultiple = ingredient.Value / inputIngredientAmounts[i];

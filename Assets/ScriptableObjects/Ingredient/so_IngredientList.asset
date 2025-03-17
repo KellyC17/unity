@@ -22,6 +22,7 @@ MonoBehaviour:
     canBeChopped: 1
     choppedTransformItemId: 
     choppedPrefab: {fileID: 4127682865877104696, guid: c41edd64d3dda4656a95187fb48fbc11, type: 3}
+    liquidPrefab: {fileID: 0}
     isSteamable: 1
     steamedTransformItemId: 
     canBeBlended: 1
@@ -42,6 +43,7 @@ MonoBehaviour:
     canBeChopped: 0
     choppedTransformItemId: 
     choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 0}
     isSteamable: 1
     steamedTransformItemId: 
     canBeBlended: 0
@@ -62,6 +64,7 @@ MonoBehaviour:
     canBeChopped: 0
     choppedTransformItemId: 
     choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 0}
     isSteamable: 1
     steamedTransformItemId: 
     canBeBlended: 1
@@ -69,6 +72,69 @@ MonoBehaviour:
     canBeMixed: 1
     mixedTransformItemId: 
     canBeEatten: 1
+    foodProducable:
+    - 
+    minFoodProduceAmount: 0
+    maxFoodProduceAmount: 0
+  - itemId: 2004
+    name: "\u76D2\u88C5\u725B\u5976"
+    description: ' '
+    sprite: {fileID: 5680698187731105692, guid: 7c1d18b855b3e42818643fb4a0c5a23b, type: 3}
+    canBeMoved: 1
+    canBeDragged: 1
+    canBeChopped: 0
+    choppedTransformItemId: 
+    choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 4380067984600844303, guid: dd7c70b5da8d24ee781fe5078548cc99, type: 3}
+    isSteamable: 1
+    steamedTransformItemId: 
+    canBeBlended: 1
+    pureedTransformItemId: 
+    canBeMixed: 1
+    mixedTransformItemId: 
+    canBeEatten: 1
+    foodProducable:
+    - 
+    minFoodProduceAmount: 0
+    maxFoodProduceAmount: 0
+  - itemId: 2005
+    name: "\u725B\u5976"
+    description: ' '
+    sprite: {fileID: -4640154498148373314, guid: 7241016d39aa141c6a791b3e24a6f334, type: 3}
+    canBeMoved: 1
+    canBeDragged: 1
+    canBeChopped: 0
+    choppedTransformItemId: 
+    choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 0}
+    isSteamable: 0
+    steamedTransformItemId: 
+    canBeBlended: 0
+    pureedTransformItemId: 
+    canBeMixed: 0
+    mixedTransformItemId: 
+    canBeEatten: 0
+    foodProducable:
+    - 
+    minFoodProduceAmount: 0
+    maxFoodProduceAmount: 0
+  - itemId: 2006
+    name: "\u8292\u679C\u5976\u6614"
+    description: ' '
+    sprite: {fileID: 1600789033254560279, guid: 4d2a3c399aaf14079b7bcb604cdff0fe, type: 3}
+    canBeMoved: 1
+    canBeDragged: 1
+    canBeChopped: 0
+    choppedTransformItemId: 
+    choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 0}
+    isSteamable: 0
+    steamedTransformItemId: 
+    canBeBlended: 0
+    pureedTransformItemId: 
+    canBeMixed: 0
+    mixedTransformItemId: 
+    canBeEatten: 0
     foodProducable:
     - 
     minFoodProduceAmount: 0

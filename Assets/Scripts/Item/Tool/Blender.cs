@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Blender : Tool
 {
+  public override bool isContainer => true;
   public override void ApplyToolAction()
   {
-    Collider2D myCollider = GetComponent<BoxCollider2D>();
-    Collider2D[] overlaps = new Collider2D[10]; // Adjust size as needed
-    int count = myCollider.Overlap(new ContactFilter2D(), overlaps);
+    ContactFilter2D contactFilter = new ContactFilter2D();
+    contactFilter.useTriggers = true;
+    int count = ingredientCollider.Overlap(contactFilter, overlaps);
     Debug.Log("Overlapping with " + count + " objects");
 
     Dictionary<string, int> ingredients = new Dictionary<string, int>();
@@ -36,11 +37,16 @@ public class Blender : Tool
       {
         Destroy(overlaps[i].gameObject);
       }
-
-      var position = transform.position - new Vector3(0.1f, 0f, 0f);
-      Instantiate(recipe.outputPrefab, position, Quaternion.identity);
+      InstantiateLiquid(recipe.outputPrefab);
 
       ingredients.Clear();
     }
+  }
+
+  public override void InstantiateLiquid(GameObject prefab)
+  {
+    // this position is specific to the blender image
+    var position = transform.position - new Vector3(0.1f, 0f, 0f);
+    Instantiate(prefab, position, Quaternion.identity);
   }
 }

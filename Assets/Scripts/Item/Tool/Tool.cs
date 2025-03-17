@@ -11,6 +11,8 @@ public class Tool : Item
   public Collider2D[] overlaps = new Collider2D[10];
   public int overlapCount = 0;
 
+  public virtual bool isContainer { get; set; }
+
   public Dictionary<string, int> ingredients = new Dictionary<string, int>();
   public List<GameObject> collidingObjects = new List<GameObject>();
 
@@ -29,8 +31,7 @@ public class Tool : Item
   void Update()
   {
     overlapCount = ingredientCollider.Overlap(new ContactFilter2D(), overlaps);
-    Debug.Log("Overlapping with " + overlapCount + " objects");
-    if (Input.GetKeyDown(KeyCode.E))
+    if (Input.GetKeyDown(KeyCode.E) && overlapCount > 0)
     {
       Debug.Log("E key was pressed!");
       Debug.Log("Tool action triggered");
@@ -61,5 +62,9 @@ public class Tool : Item
   public virtual void ApplyToolAction()
   {
     Debug.Log("Tool action triggered");
+  }
+
+  public virtual void InstantiateLiquid(GameObject prefab)
+  {
   }
 }
