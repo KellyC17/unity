@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 
 public class Tool : Item
 {
-  private ToolDetails _toolDetails;
+  [SerializeField]
+  public ToolDetails _toolDetails;
   public InputAction action;
   public bool isReady;
   public Collider2D ingredientCollider;
@@ -28,15 +29,9 @@ public class Tool : Item
   }
 
 
-  void Update()
+  public virtual void Update()
   {
     overlapCount = ingredientCollider.Overlap(new ContactFilter2D(), overlaps);
-    if (Input.GetKeyDown(KeyCode.E) && overlapCount > 0)
-    {
-      Debug.Log("E key was pressed!");
-      Debug.Log("Tool action triggered");
-      ApplyToolAction();
-    }
   }
 
   void InstantiateInTheMiddle(List<GameObject> objectsList, GameObject newObject)

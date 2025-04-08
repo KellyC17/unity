@@ -5,9 +5,7 @@ public class Ingredient : Item
 {
     private IngredientDetails _ingredientDetails;
 
-    public HashSet<ToolType> isOnTool { get; private set; } = new HashSet<ToolType>();
-
-    public HashSet<ToolEffect> isReadyForTool { get; private set; } = new HashSet<ToolEffect>();
+    public bool isReadyToChop { get; private set; } = false;
 
     public IngredientDetails IngredientDetails
     {
@@ -15,32 +13,29 @@ public class Ingredient : Item
         set { _ingredientDetails = value; }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Tool>() != null)
+        Tool tool = other.GetComponent<Tool>();
+        if (tool?.ToolDetails?.ToolType == ToolType.chopBoard)
         {
-            isOnTool.Add(other.GetComponent<Tool>().ToolDetails.ToolType);
-            isReadyForTool.Add(other.GetComponent<Tool>().ToolDetails.ToolEffect);
+            isReadyToChop = true;
+            Debug.Log($"Ingredient {gameObject.name} is now ready to chop on {other.gameObject.name}");
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.GetComponent<Tool>() != null)
+        if (other == null)
         {
-            isOnTool.Remove(other.GetComponent<Tool>().ToolDetails.ToolType);
-            isReadyForTool.Remove(other.GetComponent<Tool>().ToolDetails.ToolEffect);
+            Debug.LogError("OnTriggerExit2D: other is null");
+            return;
+        }
+
+        Tool tool = other.GetComponent<Tool>();
+        if (tool != null && tool.ToolDetails != null && tool.ToolDetails.ToolType == ToolType.chopBoard)
+        {
+            isReadyToChop = false;
+            Debug.Log($"Ingredient {gameObject.name} is no longer ready to chop");
         }
     }
-
-    public bool IsWithTool(ToolType tool)
-    {
-        return isOnTool.Contains(tool);
-    }
-
-    public bool IsReadyForTool(ToolEffect toolEffect)
-    {
-        return isReadyForTool.Contains(toolEffect);
-    }
-
 }

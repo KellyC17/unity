@@ -1,10 +1,19 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Blender : Tool
 {
+  [SerializeField]
+  public BoxCollider2D blendingTriggerCollider;
   public override bool isContainer => true;
+
+  public override void Update()
+  {
+    if (Input.GetMouseButtonDown(0) && IsMouseOver())  // Left click and mouse is over the object
+    {
+      ApplyToolAction();
+    }
+  }
   public override void ApplyToolAction()
   {
     ContactFilter2D contactFilter = new ContactFilter2D();
@@ -48,5 +57,11 @@ public class Blender : Tool
     // this position is specific to the blender image
     var position = transform.position - new Vector3(0.1f, 0f, 0f);
     Instantiate(prefab, position, Quaternion.identity);
+  }
+
+  private bool IsMouseOver()
+  {
+    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    return blendingTriggerCollider.OverlapPoint(mousePosition);
   }
 }

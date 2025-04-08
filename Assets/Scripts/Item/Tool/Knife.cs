@@ -3,26 +3,15 @@ using UnityEngine;
 
 public class Knife : Tool
 {
-  // void ApplyToolAction()
-  // {
-  //   var (recipe, output) = InventoryManager.Instance.GetMatchingRecipe(this.ItemId, ingredients);
-  //   // instantiate recipe's output id's matching prefab
-  //   if (recipe != null)
-  //   {
-  //     Debug.Log("Recipe: " + recipe.recipeName);
-
-  //     InstantiateInTheMiddle(collidingObjects, recipe.outputPrefab);
-
-  //     //todo: refactor
-  //     List<GameObject> objectsToDestroy = new List<GameObject>(collidingObjects);
-  //     foreach (var obj in objectsToDestroy)
-  //     {
-  //       Destroy(obj);
-  //     }
-  //     ingredients.Clear();
-  //     collidingObjects.Clear();
-  //   }
-  // }
+  
+  void Update()
+  {
+    base.Update();
+    if (overlapCount > 0)
+    {
+      ApplyToolAction();
+    }
+  }
 
   public override void ApplyToolAction()
   {
@@ -34,9 +23,8 @@ public class Knife : Tool
     {
       Debug.Log("Overlapping with: " + overlaps[i].gameObject.name);
       Ingredient ingredient = overlaps[i].gameObject.GetComponent<Ingredient>();
-      if (ingredient != null)
+      if (ingredient != null && ingredient.isReadyToChop)
       {
-        Debug.Log("Chopping " + ingredient);
         IngredientDetails ingredientDetails = InventoryManager.Instance.GetIngredientDetails(ingredient.ItemId);
         if (!ingredientDetails.canBeChopped)
         {

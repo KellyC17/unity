@@ -164,8 +164,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1261907621
-  m_SortingLayer: 1
+  m_SortingLayerID: -903706817
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 5680698187731105692, guid: 7c1d18b855b3e42818643fb4a0c5a23b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -193,7 +193,6 @@ MonoBehaviour:
   _itemId: 2004
   pourDistance: 2
   pouringSpeed: 1
-  milkAmount: 1
   pourPoint: {fileID: 0}
   rotationSpeed: 5
   pouringRotation: {x: 90, y: 0, z: 0}
