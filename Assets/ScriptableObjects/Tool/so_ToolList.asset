@@ -19,39 +19,45 @@ MonoBehaviour:
     sprite: {fileID: 4995230834861786101, guid: 0e2ce7fadf2a24b4b98564c45ee92190, type: 3}
     canBeMoved: 1
     canBeDragged: 0
-    type: 0
+    ToolType: 0
+    ToolEffect: 0
   - itemId: 1002
     name: "\u7834\u58C1\u673A"
     description: ' blender'
     sprite: {fileID: -933862936211941861, guid: a64ff06dac97b45779e87eb076d62de2, type: 3}
     canBeMoved: 1
     canBeDragged: 0
-    type: 1
+    ToolType: 0
+    ToolEffect: 0
   - itemId: 1003
     name: "\u716E\u9505"
     description: ' boiling pot'
     sprite: {fileID: -4307215847695495345, guid: 06b6e76abf30f44569cbc425f800b061, type: 3}
     canBeMoved: 1
     canBeDragged: 0
-    type: 3
+    ToolType: 0
+    ToolEffect: 0
   - itemId: 1004
     name: "\u84B8\u9505"
     description: 
     sprite: {fileID: 8503527066033255337, guid: d657024b501a240989add616ebf57cf5, type: 3}
     canBeMoved: 1
     canBeDragged: 0
-    type: 4
+    ToolType: 0
+    ToolEffect: 0
   - itemId: 1005
     name: "\u7827\u677F"
     description: 
     sprite: {fileID: 6114681478204823813, guid: dface5048c34a4d47b61c10a1acbe7c9, type: 3}
     canBeMoved: 1
     canBeDragged: 0
-    type: 12
+    ToolType: 12
+    ToolEffect: 0
   - itemId: 1006
     name: "\u5200"
     description: 
     sprite: {fileID: -257231714849826597, guid: 0c2098c4a0db74047bbfd91a876a35b8, type: 3}
     canBeMoved: 1
     canBeDragged: 0
-    type: 10
+    ToolType: 0
+    ToolEffect: 0
