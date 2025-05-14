@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2297829048578458507}
   - component: {fileID: 1290337067846013330}
   - component: {fileID: 981633476216602050}
-  - component: {fileID: 7282158113987621279}
+  - component: {fileID: 7126990976453626283}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eacfc2cb611bf48589a76622b61cfd67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemId: 2005
+  _itemId: 2010
 --- !u!212 &981633476216602050
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ SpriteRenderer:
   m_SortingLayerID: -903706817
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4640154498148373314, guid: 7241016d39aa141c6a791b3e24a6f334, type: 3}
+  m_Sprite: {fileID: -6820745987359068363, guid: 71f59d4d07b874aef84241036808086a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7282158113987621279
+--- !u!114 &7126990976453626283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4358789191417282090}
   m_Layer: 0
-  m_Name: "\u725B\u5976"
+  m_Name: "\u6C34"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

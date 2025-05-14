@@ -17,6 +17,9 @@ public class Tool : Item
   public Dictionary<string, int> ingredients = new Dictionary<string, int>();
   public List<GameObject> collidingObjects = new List<GameObject>();
 
+  // Add liquid tracking dictionary
+  protected Dictionary<LiquidContainer, GameObject> activeLiquids = new Dictionary<LiquidContainer, GameObject>();
+
   public ToolDetails ToolDetails
   {
     get { return _toolDetails; }
@@ -61,5 +64,12 @@ public class Tool : Item
 
   public virtual void InstantiateLiquid(GameObject prefab)
   {
+  }
+
+  // Add virtual method for receiving liquid
+  public virtual void ReceiveLiquid(GameObject liquidPrefab, LiquidContainer sourceContainer)
+  {
+    // Base implementation returns null - only Blender and Steamer should override this
+    return;
   }
 }

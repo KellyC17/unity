@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2297829048578458507}
   - component: {fileID: 1290337067846013330}
   - component: {fileID: 981633476216602050}
-  - component: {fileID: 7282158113987621279}
+  - component: {fileID: 7126990976453626283}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 613840905423625634}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.3885, y: -0.0495, z: 0}
+  m_LocalScale: {x: 0.17673601, y: 0.20321509, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4358789191417282090}
@@ -70,17 +70,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0064923763, y: 0.01747477}
+  m_Offset: {x: -0.34764576, y: 0.15099013}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1, y: 0.78}
+    oldSize: {x: 6.23, y: 3.99}
     newSize: {x: 1.17, y: 0.98}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.1171682, y: 0.83838487}
+  m_Size: {x: 5.3474655, y: 3.6570408}
   m_EdgeRadius: 0
 --- !u!50 &2297829048578458507
 Rigidbody2D:
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eacfc2cb611bf48589a76622b61cfd67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemId: 2005
+  _itemId: 2011
 --- !u!212 &981633476216602050
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ SpriteRenderer:
   m_SortingLayerID: -903706817
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4640154498148373314, guid: 7241016d39aa141c6a791b3e24a6f334, type: 3}
+  m_Sprite: {fileID: -1757223434116430772, guid: cadcd6e25519541e29af0c376ae655aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7282158113987621279
+--- !u!114 &7126990976453626283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4358789191417282090}
   m_Layer: 0
-  m_Name: "\u725B\u5976"
+  m_Name: "\u7EFF\u8C46\u7CA5\u6DB2\u4F53"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

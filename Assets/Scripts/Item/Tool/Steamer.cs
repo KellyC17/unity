@@ -20,18 +20,27 @@ public class Steamer : Tool
       }
     }
   }
+
   public override void ApplyToolAction()
   {
-    // Start coroutine to increment progress over 60 seconds
+    // Only start steaming if we have any liquids
+    if (activeLiquids.Count == 0) return;
+
+    progressBar.maxValue = 60;
+    progressBar.currentValue = 0;
     StartCoroutine(UpdateProgress(progressBar));
-    // }
   }
 
-  public override void InstantiateLiquid(GameObject prefab)
+  // New method to handle receiving liquid
+  public override void ReceiveLiquid(GameObject liquidPrefab, LiquidContainer sourceContainer)
   {
-    // this position is specific to the blender image
+    // Don't accept liquid from the same source
+    if (activeLiquids.ContainsKey(sourceContainer)) return;
+
+    // Instantiate new liquid
     var position = transform.position - new Vector3(0.1f, 0f, 0f);
-    Instantiate(prefab, position, Quaternion.identity);
+    GameObject newLiquid = Instantiate(liquidPrefab, position, Quaternion.identity);
+    activeLiquids.Add(sourceContainer, newLiquid);
   }
 
   private bool IsMouseOver()
@@ -44,18 +53,19 @@ public class Steamer : Tool
   {
     Debug.Log("Updating progress");
     isSteaming = true;
-    float duration = 10f; 
+    float duration = 30f;
     float elapsedTime = 0f;
 
     while (elapsedTime < duration)
     {
-        elapsedTime += Time.deltaTime;  // Increase the elapsed time
-        progressBar.fillImage.fillAmount = Mathf.Lerp(0f, 1f, elapsedTime / duration);
-        yield return null;
+      elapsedTime += Time.deltaTime;
+      progressBar.currentValue = Mathf.Lerp(0f, progressBar.maxValue, elapsedTime / duration);
+      yield return null;
     }
 
-    // When progress is complete, set isReady to true
+    // When progress is complete
     isSteaming = false;
+
     Debug.Log("Steaming process completed!");
   }
 }

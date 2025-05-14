@@ -16,8 +16,7 @@ MonoBehaviour:
   - itemId: 2001
     name: "\u8292\u679C"
     description: ' mango'
-    sprite: {fileID: -6452211678065327113, guid: a22ba02a032de435d9d8c9d5fc29a04c, type: 3}
-    canBeMoved: 1
+    canBeMoved: 0
     canBeDragged: 1
     canBeChopped: 1
     choppedTransformItemId: 
@@ -37,7 +36,6 @@ MonoBehaviour:
   - itemId: 2002
     name: "\u8292\u679C\u679C\u7C92"
     description: ' mango'
-    sprite: {fileID: 4171770789033743611, guid: 101736941dd5a42f6a43583456967671, type: 3}
     canBeMoved: 1
     canBeDragged: 1
     canBeChopped: 0
@@ -58,7 +56,6 @@ MonoBehaviour:
   - itemId: 2003
     name: "\u8292\u679C\u679C\u6CE5"
     description: ' mango'
-    sprite: {fileID: 778027421585918473, guid: 4ff0cba20732c4a1a9b71f56502ef123, type: 3}
     canBeMoved: 1
     canBeDragged: 1
     canBeChopped: 0
@@ -79,7 +76,6 @@ MonoBehaviour:
   - itemId: 2004
     name: "\u76D2\u88C5\u725B\u5976"
     description: ' '
-    sprite: {fileID: 5680698187731105692, guid: 7c1d18b855b3e42818643fb4a0c5a23b, type: 3}
     canBeMoved: 1
     canBeDragged: 1
     canBeChopped: 0
@@ -100,7 +96,6 @@ MonoBehaviour:
   - itemId: 2005
     name: "\u725B\u5976"
     description: ' '
-    sprite: {fileID: -4640154498148373314, guid: 7241016d39aa141c6a791b3e24a6f334, type: 3}
     canBeMoved: 1
     canBeDragged: 1
     canBeChopped: 0
@@ -121,7 +116,86 @@ MonoBehaviour:
   - itemId: 2006
     name: "\u8292\u679C\u5976\u6614"
     description: ' '
-    sprite: {fileID: 1600789033254560279, guid: 4d2a3c399aaf14079b7bcb604cdff0fe, type: 3}
+    canBeMoved: 1
+    canBeDragged: 1
+    canBeChopped: 0
+    choppedTransformItemId: 
+    choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 0}
+    isSteamable: 0
+    steamedTransformItemId: 
+    canBeBlended: 0
+    pureedTransformItemId: 
+    canBeMixed: 0
+    mixedTransformItemId: 
+    canBeEatten: 0
+    foodProducable:
+    - 
+    minFoodProduceAmount: 0
+    maxFoodProduceAmount: 0
+  - itemId: 2007
+    name: "\u7EFF\u8C46"
+    description: "\u7EFF\u8C46"
+    canBeMoved: 1
+    canBeDragged: 1
+    canBeChopped: 0
+    choppedTransformItemId: 
+    choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 0}
+    isSteamable: 0
+    steamedTransformItemId: 
+    canBeBlended: 0
+    pureedTransformItemId: 
+    canBeMixed: 0
+    mixedTransformItemId: 
+    canBeEatten: 0
+    foodProducable:
+    - 
+    minFoodProduceAmount: 0
+    maxFoodProduceAmount: 0
+  - itemId: 2008
+    name: "\u7EFF\u8C46\u7CA5"
+    description: ' '
+    canBeMoved: 1
+    canBeDragged: 1
+    canBeChopped: 0
+    choppedTransformItemId: 
+    choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 0}
+    isSteamable: 0
+    steamedTransformItemId: 
+    canBeBlended: 0
+    pureedTransformItemId: 
+    canBeMixed: 0
+    mixedTransformItemId: 
+    canBeEatten: 0
+    foodProducable:
+    - 
+    minFoodProduceAmount: 0
+    maxFoodProduceAmount: 0
+  - itemId: 2009
+    name: "\u6C34\u58F6"
+    description: ' '
+    canBeMoved: 1
+    canBeDragged: 1
+    canBeChopped: 0
+    choppedTransformItemId: 
+    choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 4380067984600844303, guid: 2b1194e59e5a44060adeef49b9016cbc, type: 3}
+    isSteamable: 0
+    steamedTransformItemId: 
+    canBeBlended: 0
+    pureedTransformItemId: 
+    canBeMixed: 0
+    mixedTransformItemId: 
+    canBeEatten: 0
+    foodProducable:
+    - 
+    minFoodProduceAmount: 0
+    maxFoodProduceAmount: 0
+  - itemId: 2010
+    name: "\u6C34"
+    description: ' '
     canBeMoved: 1
     canBeDragged: 1
     canBeChopped: 0

@@ -8,7 +8,6 @@ public abstract class ItemDetails
   public string itemId;
   public string name;
   public string description;
-  public Sprite sprite;
   public bool canBeMoved;
   public bool canBeDragged;
 }

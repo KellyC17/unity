@@ -7,6 +7,21 @@ public class Blender : Tool
   public BoxCollider2D blendingTriggerCollider;
   public override bool isContainer => true;
 
+  // Add liquid tracking
+  private Dictionary<LiquidContainer, GameObject> activeLiquids = new Dictionary<LiquidContainer, GameObject>();
+
+  // Add new method to handle receiving liquid
+  public override void ReceiveLiquid(GameObject liquidPrefab, LiquidContainer sourceContainer)
+  {
+    // Don't accept liquid from the same source
+    if (activeLiquids.ContainsKey(sourceContainer)) return;
+
+    // Instantiate new liquid
+    var position = transform.position - new Vector3(0.1f, 0f, 0f);
+    GameObject newLiquid = Instantiate(liquidPrefab, position, Quaternion.identity);
+    activeLiquids.Add(sourceContainer, newLiquid);
+  }
+
   public override void Update()
   {
     if (Input.GetMouseButtonDown(0) && IsMouseOver())  // Left click and mouse is over the object
@@ -19,7 +34,6 @@ public class Blender : Tool
     ContactFilter2D contactFilter = new ContactFilter2D();
     contactFilter.useTriggers = true;
     int count = ingredientCollider.Overlap(contactFilter, overlaps);
-    Debug.Log("Overlapping with " + count + " objects");
 
     Dictionary<string, int> ingredients = new Dictionary<string, int>();
 
@@ -29,19 +43,10 @@ public class Blender : Tool
       ingredients[ingredientId] = ingredients.ContainsKey(ingredientId) ? ingredients[ingredientId] + 1 : 1;
     }
 
-    // log current state of ingredients
-    foreach (KeyValuePair<string, int> ingredient in ingredients)
-    {
-
-      Debug.Log(ingredient.Key + ": " + ingredient);
-    }
-
     (Recipe recipe, int output) = InventoryManager.Instance.GetMatchingRecipe(ItemId, ingredients);
 
     if (recipe != null)
     {
-      Debug.Log("Recipe: " + recipe.recipeId);
-      Debug.Log("Output: " + output);
       for (int i = 0; i < count; i++)
       {
         Destroy(overlaps[i].gameObject);
