@@ -37,10 +37,15 @@ public class Steamer : Tool
     // Don't accept liquid from the same source
     if (activeLiquids.ContainsKey(sourceContainer)) return;
 
-    // Instantiate new liquid
-    var position = transform.position - new Vector3(0.1f, 0f, 0f);
-    GameObject newLiquid = Instantiate(liquidPrefab, position, Quaternion.identity);
-    activeLiquids.Add(sourceContainer, newLiquid);
+    // Get the ingredient details to use the correct snap position
+    IngredientDetails details = InventoryManager.Instance.GetIngredientDetails(sourceContainer.ItemId);
+    if (details != null)
+    {
+      // Instantiate new liquid at the snap position
+      Vector3 position = transform.position + details.steamerSnapPosition;
+      GameObject newLiquid = Instantiate(liquidPrefab, position, Quaternion.identity);
+      activeLiquids.Add(sourceContainer, newLiquid);
+    }
   }
 
   private bool IsMouseOver()
@@ -53,7 +58,7 @@ public class Steamer : Tool
   {
     Debug.Log("Updating progress");
     isSteaming = true;
-    float duration = 30f;
+    float duration = 1f;
     float elapsedTime = 0f;
 
     while (elapsedTime < duration)
@@ -66,6 +71,46 @@ public class Steamer : Tool
     // When progress is complete
     isSteaming = false;
 
+    // Check for overlapping ingredients
+    ContactFilter2D contactFilter = new ContactFilter2D();
+    contactFilter.useTriggers = true;
+    Collider2D[] overlaps = new Collider2D[10];
+    int count = SteamTriggerCollider.Overlap(contactFilter, overlaps);
+
+    Dictionary<string, int> ingredients = new Dictionary<string, int>();
+
+    for (int i = 0; i < count; i++)
+    {
+      string ingredientId = overlaps[i].gameObject.GetComponent<Ingredient>().ItemId;
+      ingredients[ingredientId] = ingredients.ContainsKey(ingredientId) ? ingredients[ingredientId] + 1 : 1;
+    }
+
+    Debug.Log("Ingredients: " + string.Join(", ", ingredients));
+    Debug.Log("ItemId: " + ItemId);
+
+    // Find matching recipe
+    (Recipe recipe, int output) = InventoryManager.Instance.GetMatchingRecipe(ItemId, ingredients);
+
+    if (recipe != null)
+    {
+      for (int i = 0; i < count; i++)
+      {
+        Destroy(overlaps[i].gameObject);
+      }
+      activeLiquids.Clear();
+
+      Debug.Log("OutputId: " + recipe.outputId);
+      // Instantiate output
+      InstantiateLiquid(recipe.outputPrefab);
+    }
+
     Debug.Log("Steaming process completed!");
+  }
+
+  public override void InstantiateLiquid(GameObject prefab)
+  {
+    // this position is specific to the blender image
+    var position = transform.position - new Vector3(0.1f, 0f, 0f);
+    Instantiate(prefab, position, Quaternion.identity);
   }
 }

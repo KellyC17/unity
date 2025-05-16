@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoveRestrictedToScreen: 0
+  dragPriority: 2
+  dragZoneRadius: 0.5
 --- !u!114 &5615424877386400877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +192,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemId: 1006
+  _toolDetails:
+    itemId: 
+    name: 
+    description: 
+    canBeMoved: 0
+    canBeDragged: 0
+    ToolType: 0
+    ToolEffect: 0
   action:
     m_Name: Action
     m_Type: 0

@@ -16,10 +16,15 @@ public class Blender : Tool
     // Don't accept liquid from the same source
     if (activeLiquids.ContainsKey(sourceContainer)) return;
 
-    // Instantiate new liquid
-    var position = transform.position - new Vector3(0.1f, 0f, 0f);
-    GameObject newLiquid = Instantiate(liquidPrefab, position, Quaternion.identity);
-    activeLiquids.Add(sourceContainer, newLiquid);
+    // Get the ingredient details to use the correct snap position
+    IngredientDetails details = InventoryManager.Instance.GetIngredientDetails(sourceContainer.ItemId);
+    if (details != null)
+    {
+      // Instantiate new liquid at the snap position
+      Vector3 position = transform.position + details.blenderSnapPosition;
+      GameObject newLiquid = Instantiate(liquidPrefab, position, Quaternion.identity);
+      activeLiquids.Add(sourceContainer, newLiquid);
+    }
   }
 
   public override void Update()

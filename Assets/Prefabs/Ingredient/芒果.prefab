@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoveRestrictedToScreen: 0
+  dragPriority: 2
+  dragZoneRadius: 0.5
 --- !u!212 &4962407632569574595
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -178,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1261907621
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -6452211678065327113, guid: a22ba02a032de435d9d8c9d5fc29a04c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

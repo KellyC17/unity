@@ -8,20 +8,16 @@ public class IngredientDetails : ItemDetails
   public string choppedTransformItemId;
   public GameObject choppedPrefab;
   public GameObject liquidPrefab;
-  public bool isSteamable;
-  public string steamedTransformItemId;
-
-  public bool canBeBlended; // 搅拌机
-  public string pureedTransformItemId;
-
-  public bool canBeMixed; // 厨师机
-  public string mixedTransformItemId;
-
+  public bool isLiquid;
   public bool canBeEatten;
+
+  // Container-specific snap positions
+  public Vector3 bowlSnapPosition = new Vector3(0, 0.5f, 0);
+  public Vector3 blenderSnapPosition = new Vector3(-0.1f, 0f, 0f);
+  public Vector3 steamerSnapPosition = new Vector3(0f, 0f, 0f);
 
   public string[] foodProducable;
 
   public int minFoodProduceAmount;
   public int maxFoodProduceAmount;
-
 }

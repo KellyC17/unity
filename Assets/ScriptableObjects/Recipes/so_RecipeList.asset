@@ -41,13 +41,13 @@ MonoBehaviour:
     - 2005
     inputIngredientAmounts: 0100000001000000
     toolId: 1002
-  - recipeId: 3003
-    recipeName: "\u8292\u679C\u5976\u6614"
-    outputId: 2008
-    outputPrefab: {fileID: 4380067984600844303, guid: e7282b349b5b3484baef60beb717fdfc, type: 3}
+  - recipeId: 3004
+    recipeName: "\u7EFF\u8C46\u7CA5"
+    outputId: 2011
+    outputPrefab: {fileID: 4380067984600844303, guid: 190be659f95834209bf5ab0570bfcb44, type: 3}
     outputAmount: 1
     inputIngredientIds:
-    - 2002
-    - 2005
+    - 2010
+    - 2007
     inputIngredientAmounts: 0100000001000000
-    toolId: 1002
+    toolId: 1003

@@ -12,6 +12,7 @@ public class DragRestricted : MonoBehaviour
     private Camera mainCamera;
     private Collider2D itemCollider;
     private static DragRestricted currentlyDragging;
+    private Vector3? lastValidPosition = null; // Store the last valid snap position
 
     private void Start()
     {
@@ -40,7 +41,7 @@ public class DragRestricted : MonoBehaviour
         {
             Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             float distance = Vector2.Distance(mousePosition, transform.position);
-            
+
             // Check if mouse is within drag zone
             if (distance <= dragZoneRadius)
             {
@@ -78,7 +79,7 @@ public class DragRestricted : MonoBehaviour
         dragging = true;
         currentlyDragging = this;
         offset = transform.position - mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        
+
         // Temporarily disable collision while dragging
         if (itemCollider != null)
         {
@@ -90,11 +91,69 @@ public class DragRestricted : MonoBehaviour
     {
         dragging = false;
         currentlyDragging = null;
-        
+
         // Re-enable collision after dragging
         if (itemCollider != null)
         {
             itemCollider.enabled = true;
+        }
+
+        bool foundValidContainer = false;
+
+        // Check if we're over a container tool
+        Collider2D[] colliders = Physics2D.OverlapPointAll(transform.position);
+        foreach (Collider2D collider in colliders)
+        {
+            Tool tool = collider.GetComponent<Tool>();
+            if (tool != null && tool.isContainer)
+            {
+                // Get the ingredient component to access its ID
+                Ingredient ingredient = GetComponent<Ingredient>();
+                if (ingredient != null)
+                {
+                    // Look up ingredient details from InventoryManager
+                    IngredientDetails details = InventoryManager.Instance.GetIngredientDetails(ingredient.ItemId);
+                    if (details != null)
+                    {
+
+                        // Get the appropriate snap position based on tool type
+                        Vector3 snapPosition;
+                        if (tool is Bowl)
+                        {
+                            snapPosition = details.bowlSnapPosition;
+                        }
+                        else if (tool is Blender)
+                        {
+                            snapPosition = details.blenderSnapPosition;
+                        }
+                        else if (tool is Steamer)
+                        {
+                            snapPosition = details.steamerSnapPosition;
+                        }
+                        else
+                        {
+                            // Default to bowl snap position if tool type is unknown
+                            snapPosition = details.bowlSnapPosition;
+                        }
+
+                        // Snap to the container's position using the appropriate snap position
+                        Vector3 containerPosition = tool.transform.position;
+                        Vector3 newPosition = containerPosition + snapPosition;
+                        Debug.Log($"Snapping {gameObject.name} to {newPosition} for {tool.GetType().Name}");
+                        transform.position = newPosition;
+                        lastValidPosition = newPosition;
+                        foundValidContainer = true;
+                    }
+                }
+                break;
+            }
+        }
+
+        // If no valid container was found and we have a last valid position, return to it
+        if (!foundValidContainer && lastValidPosition.HasValue)
+        {
+            Debug.Log($"No valid container found, returning {gameObject.name} to last valid position {lastValidPosition.Value}");
+            transform.position = lastValidPosition.Value;
         }
     }
 
