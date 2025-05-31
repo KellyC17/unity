@@ -23,9 +23,25 @@ public class Blender : Tool
       // Instantiate new liquid at the snap position
       Vector3 position = transform.position + details.blenderSnapPosition;
       GameObject newLiquid = Instantiate(liquidPrefab, position, Quaternion.identity);
+      LiquidDragHandler dragHandler = newLiquid.GetComponent<LiquidDragHandler>();
+      if (dragHandler != null)
+      {
+          dragHandler.sourceContainer = sourceContainer;
+          dragHandler.blender = this;
+      }
       activeLiquids.Add(sourceContainer, newLiquid);
     }
   }
+
+  public void OnLiquidDraggedOut(LiquidContainer sourceContainer)
+{
+    if (activeLiquids.ContainsKey(sourceContainer))
+    {
+        // Just remove reference, do NOT destroy the GameObject
+        Debug.Log("Remove liquid");
+        activeLiquids.Remove(sourceContainer);
+    }
+}
 
   public override void Update()
   {
