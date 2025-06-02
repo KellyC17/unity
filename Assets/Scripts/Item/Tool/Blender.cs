@@ -10,6 +10,9 @@ public class Blender : Tool
   // Add liquid tracking
   private Dictionary<LiquidContainer, GameObject> activeLiquids = new Dictionary<LiquidContainer, GameObject>();
 
+  // Add solid tracking
+  private List<GameObject> activeSolids = new List<GameObject>();
+
   // Add new method to handle receiving liquid
   public override void ReceiveLiquid(GameObject liquidPrefab, LiquidContainer sourceContainer)
   {
@@ -26,20 +29,42 @@ public class Blender : Tool
       LiquidDragHandler dragHandler = newLiquid.GetComponent<LiquidDragHandler>();
       if (dragHandler != null)
       {
-          dragHandler.sourceContainer = sourceContainer;
-          dragHandler.blender = this;
+        dragHandler.sourceContainer = sourceContainer;
+        dragHandler.blender = this;
       }
       activeLiquids.Add(sourceContainer, newLiquid);
     }
   }
 
-  public void OnLiquidDraggedOut(LiquidContainer sourceContainer)
+  public void ReceiveSolid(GameObject solidPrefab)
 {
+    // Get the ingredient details to use the correct snap position
+    IngredientDetails details = InventoryManager.Instance.GetIngredientDetails(solidPrefab.GetComponent<Ingredient>().ItemId);
+    if (details != null)
+    {
+        // Instantiate new solid at the snap position
+        Vector3 position = transform.position + details.blenderSnapPosition;
+        GameObject newSolid = Instantiate(solidPrefab, position, Quaternion.identity);
+        activeSolids.Add(newSolid);
+    }
+}
+
+  public void OnLiquidDraggedOut(LiquidContainer sourceContainer)
+  {
     if (activeLiquids.ContainsKey(sourceContainer))
     {
-        // Just remove reference, do NOT destroy the GameObject
-        Debug.Log("Remove liquid");
-        activeLiquids.Remove(sourceContainer);
+      // Just remove reference, do NOT destroy the GameObject
+      Debug.Log("Remove liquid");
+      activeLiquids.Remove(sourceContainer);
+    }
+  }
+
+public void OnSolidDraggedOut(GameObject solidObject)
+{
+    if (activeSolids.Contains(solidObject))
+    {
+        Debug.Log("Remove solid object");
+        activeSolids.Remove(solidObject);
     }
 }
 

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 7865077945759369043}
   - component: {fileID: 5249903634692388318}
   - component: {fileID: 4455032700814850517}
-  - component: {fileID: 4218959870879395751}
   - component: {fileID: 4962407632569574595}
   - component: {fileID: -3704078328592838283}
   - component: {fileID: 2280485660956645622}
+  - component: {fileID: 9115828441666944377}
   m_Layer: 0
   m_Name: "\u76D2\u88C5\u6930\u5976"
   m_TagString: Untagged
@@ -110,21 +110,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &4218959870879395751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3040963367100982586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f621f314b4ae6480d92eae13f47fe56d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveRestrictedToScreen: 0
-  dragPriority: 2
-  dragZoneRadius: 0.5
 --- !u!212 &4962407632569574595
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -243,3 +228,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &9115828441666944377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3040963367100982586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e4ba4ba2d34419cb59e2b9935546b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steamer: {fileID: 0}
+  blender: {fileID: 0}
+  originalPosition: {x: 0, y: 0, z: 0}

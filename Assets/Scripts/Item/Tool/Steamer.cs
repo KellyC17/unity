@@ -10,6 +10,9 @@ public class Steamer : Tool
   private bool isSteaming = false;
   public ProgressBar progressBar;
 
+  // Add solid tracking dictionary
+  protected List<GameObject> activeSolids = new List<GameObject>();
+
   public override void Update()
   {
     if (Input.GetMouseButtonDown(0) && IsMouseOver())  // Left click and mouse is over the object
@@ -53,14 +56,37 @@ public class Steamer : Tool
       activeLiquids.Add(sourceContainer, newLiquid);
     }
   }
+  
+  public void ReceiveSolid(GameObject solidPrefab)
+{
+    // Get the ingredient details to use the correct snap position
+    IngredientDetails details = InventoryManager.Instance.GetIngredientDetails(solidPrefab.GetComponent<Ingredient>().ItemId);
+    if (details != null)
+    {
+        // Instantiate new solid at the snap position
+        Vector3 position = transform.position + details.blenderSnapPosition;
+        GameObject newSolid = Instantiate(solidPrefab, position, Quaternion.identity);
+        activeSolids.Add(newSolid);
+    }
+}
+
 
   public void OnLiquidDraggedOut(LiquidContainer sourceContainer)
-{
+  {
     if (activeLiquids.ContainsKey(sourceContainer))
     {
-        // Just remove reference, do NOT destroy the GameObject
-        Debug.Log("Remove liquid");
-        activeLiquids.Remove(sourceContainer);
+      // Just remove reference, do NOT destroy the GameObject
+      Debug.Log("Remove liquid");
+      activeLiquids.Remove(sourceContainer);
+    }
+  }
+
+  public void OnSolidDraggedOut(GameObject solidObject)
+{
+    if (activeSolids.Contains(solidObject))
+    {
+        Debug.Log("Remove solid object");
+        activeSolids.Remove(solidObject);
     }
 }
 
