@@ -7,6 +7,7 @@ public class LiquidDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public Steamer steamer;   // nullable: assigned when spawned in Steamer
     public Blender blender;   // nullable: assigned when spawned in Blender
+    public Mixer mixer;       // nullable: assigned when spawned in Mixer
 
     private Vector3 originalPosition;
     private Transform originalParent;

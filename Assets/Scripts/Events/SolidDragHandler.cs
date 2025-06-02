@@ -5,6 +5,7 @@ public class SolidDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 {
     public Steamer steamer;   // Nullable: assigned when spawned in Steamer
     public Blender blender;   // Nullable: assigned when spawned in Blender
+    public Mixer mixer;       // nullable: assigned when spawned in Mixer
 
     public Vector3 originalPosition; // Optional: track original position if needed
 
