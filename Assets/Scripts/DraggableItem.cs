@@ -113,6 +113,7 @@ public class DragRestricted : MonoBehaviour
                 {
                     // Look up ingredient details from InventoryManager
                     IngredientDetails details = InventoryManager.Instance.GetIngredientDetails(ingredient.ItemId);
+                    Debug.Log(details.isLiquid);
                     if (details != null)
                     {
 
@@ -139,7 +140,6 @@ public class DragRestricted : MonoBehaviour
                         // Snap to the container's position using the appropriate snap position
                         Vector3 containerPosition = tool.transform.position;
                         Vector3 newPosition = containerPosition + snapPosition;
-                        Debug.Log($"Snapping {gameObject.name} to {newPosition} for {tool.GetType().Name}");
                         transform.position = newPosition;
                         lastValidPosition = newPosition;
                         foundValidContainer = true;
@@ -152,7 +152,6 @@ public class DragRestricted : MonoBehaviour
         // If no valid container was found and we have a last valid position, return to it
         if (!foundValidContainer && lastValidPosition.HasValue)
         {
-            Debug.Log($"No valid container found, returning {gameObject.name} to last valid position {lastValidPosition.Value}");
             transform.position = lastValidPosition.Value;
         }
     }

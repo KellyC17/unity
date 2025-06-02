@@ -25,12 +25,10 @@ public class Recipe
 
   internal int MatchesIngredients(string toolId, Dictionary<string, int> ingredients)
   {
-    Debug.Log("Checking recipe " + recipeId);
     if (this.toolId != toolId)
     {
       return 0;
     }
-    Debug.Log(1);
 
     int multiple = -1;
 

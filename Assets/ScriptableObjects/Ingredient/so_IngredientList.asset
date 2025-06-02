@@ -86,7 +86,7 @@ MonoBehaviour:
     minFoodProduceAmount: 0
     maxFoodProduceAmount: 0
   - itemId: 2005
-    name: "\u725B\u5976"
+    name: "\u888B\u88C5\u9762\u7C89"
     description: ' '
     canBeMoved: 1
     canBeDragged: 1
@@ -112,7 +112,7 @@ MonoBehaviour:
     choppedTransformItemId: 
     choppedPrefab: {fileID: 0}
     liquidPrefab: {fileID: 0}
-    isLiquid: 0
+    isLiquid: 1
     canBeEatten: 0
     bowlSnapPosition: {x: 0, y: 0.5, z: 0}
     blenderSnapPosition: {x: 0, y: 0, z: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
     minFoodProduceAmount: 0
     maxFoodProduceAmount: 0
   - itemId: 2008
-    name: "\u7EFF\u8C46\u7CA5"
+    name: "\u9762\u7C89"
     description: ' '
     canBeMoved: 1
     canBeDragged: 1
@@ -148,7 +148,7 @@ MonoBehaviour:
     choppedTransformItemId: 
     choppedPrefab: {fileID: 0}
     liquidPrefab: {fileID: 0}
-    isLiquid: 0
+    isLiquid: 1
     canBeEatten: 0
     bowlSnapPosition: {x: 0, y: 0.5, z: 0}
     blenderSnapPosition: {x: 0, y: 0, z: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
     choppedTransformItemId: 
     choppedPrefab: {fileID: 0}
     liquidPrefab: {fileID: 4380067984600844303, guid: 2b1194e59e5a44060adeef49b9016cbc, type: 3}
-    isLiquid: 0
+    isLiquid: 1
     canBeEatten: 0
     bowlSnapPosition: {x: 0, y: 0.5, z: 0}
     blenderSnapPosition: {x: -0.1, y: 0, z: 0}
@@ -184,7 +184,7 @@ MonoBehaviour:
     choppedTransformItemId: 
     choppedPrefab: {fileID: 0}
     liquidPrefab: {fileID: 0}
-    isLiquid: 0
+    isLiquid: 1
     canBeEatten: 0
     bowlSnapPosition: {x: 0, y: 0.5, z: 0}
     blenderSnapPosition: {x: 0, y: 0, z: 0}
@@ -202,9 +202,63 @@ MonoBehaviour:
     choppedTransformItemId: 
     choppedPrefab: {fileID: 0}
     liquidPrefab: {fileID: 0}
-    isLiquid: 0
+    isLiquid: 1
     canBeEatten: 0
-    bowlSnapPosition: {x: 0, y: 0, z: 0}
+    bowlSnapPosition: {x: 0.1, y: 0, z: 0}
+    blenderSnapPosition: {x: -0.1, y: 0, z: 0}
+    steamerSnapPosition: {x: 0, y: 0, z: 0}
+    foodProducable:
+    - 
+    minFoodProduceAmount: 0
+    maxFoodProduceAmount: 0
+  - itemId: 2012
+    name: "\u7EFF\u8C46\u7CA5\u6DB2\u4F53"
+    description: ' '
+    canBeMoved: 1
+    canBeDragged: 1
+    canBeChopped: 0
+    choppedTransformItemId: 
+    choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 0}
+    isLiquid: 1
+    canBeEatten: 0
+    bowlSnapPosition: {x: 0.1, y: 0, z: 0}
+    blenderSnapPosition: {x: -0.1, y: 0, z: 0}
+    steamerSnapPosition: {x: 0, y: 0, z: 0}
+    foodProducable:
+    - 
+    minFoodProduceAmount: 0
+    maxFoodProduceAmount: 0
+  - itemId: 2013
+    name: "\u7EFF\u8C46\u7CA5\u6DB2\u4F53"
+    description: ' '
+    canBeMoved: 1
+    canBeDragged: 1
+    canBeChopped: 0
+    choppedTransformItemId: 
+    choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 0}
+    isLiquid: 1
+    canBeEatten: 0
+    bowlSnapPosition: {x: 0.1, y: 0, z: 0}
+    blenderSnapPosition: {x: -0.1, y: 0, z: 0}
+    steamerSnapPosition: {x: 0, y: 0, z: 0}
+    foodProducable:
+    - 
+    minFoodProduceAmount: 0
+    maxFoodProduceAmount: 0
+  - itemId: 2014
+    name: "\u7EFF\u8C46\u7CA5\u6DB2\u4F53"
+    description: ' '
+    canBeMoved: 1
+    canBeDragged: 1
+    canBeChopped: 0
+    choppedTransformItemId: 
+    choppedPrefab: {fileID: 0}
+    liquidPrefab: {fileID: 0}
+    isLiquid: 1
+    canBeEatten: 0
+    bowlSnapPosition: {x: 0.1, y: 0, z: 0}
     blenderSnapPosition: {x: -0.1, y: 0, z: 0}
     steamerSnapPosition: {x: 0, y: 0, z: 0}
     foodProducable:

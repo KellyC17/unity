@@ -79,7 +79,6 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
       int output = recipe.MatchesIngredients(toolId, ingredients);
       if (output > 0)
       {
-        Debug.Log("Recipe: " + recipe.recipeId);
         return (recipe, output);
       }
     }

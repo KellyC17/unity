@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Knife : Tool
 {
-  
+
   void Update()
   {
     base.Update();
@@ -17,11 +17,9 @@ public class Knife : Tool
   {
     overlaps = new Collider2D[10]; // Adjust size as needed
     int count = ingredientCollider.Overlap(new ContactFilter2D(), overlaps);
-    Debug.Log("Overlapping with " + count + " objects");
 
     for (int i = 0; i < count; i++)
     {
-      Debug.Log("Overlapping with: " + overlaps[i].gameObject.name);
       Ingredient ingredient = overlaps[i].gameObject.GetComponent<Ingredient>();
       if (ingredient != null && ingredient.isReadyToChop)
       {

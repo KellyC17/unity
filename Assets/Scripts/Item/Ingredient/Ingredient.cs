@@ -19,7 +19,6 @@ public class Ingredient : Item
         if (tool?.ToolDetails?.ToolType == ToolType.chopBoard)
         {
             isReadyToChop = true;
-            Debug.Log($"Ingredient {gameObject.name} is now ready to chop on {other.gameObject.name}");
         }
     }
 
@@ -35,7 +34,6 @@ public class Ingredient : Item
         if (tool != null && tool.ToolDetails != null && tool.ToolDetails.ToolType == ToolType.chopBoard)
         {
             isReadyToChop = false;
-            Debug.Log($"Ingredient {gameObject.name} is no longer ready to chop");
         }
     }
 }
